@@ -132,40 +132,26 @@ std::cout << obj.value;
 - `⛔️ b. 1`
 - `⛔️ c. 5`
 
-6) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+6) Дан фрагмент кода на языке С++. Какой модификатор доступа у valueA в классе B ?
   
 ```cpp
 class A{
-public:
-    A(){
-        std::cout << 'A';
-    }
+private:
+    int valueA = 1;
 };
 
-class B{
+class B: public A{
 public:
-    B(){
-        std::cout << 'B';
-    }
+    int valueB = 5;
 };
-
-class C: public A, public B{
-public:
-    C(){
-        std::cout << 'C';
-    }
-};
-
-C obj;
 ```
 
 ### Ответ:
-- `✅ a. ABC`
-- `⛔️ b. C`
-- `⛔️ c. CAB`
-- `⛔️ d. BAC`
-- `⛔️ e. CBA`
-- `⛔️ f. Ничего`
+- `✅ a. поле не доступно`
+- `⛔️ b. published`
+- `⛔️ c. private`
+- `⛔️ d. public`
+- `⛔️ e. protected`
 
 7) Как заблокировать мьютекс в Go?
 
@@ -710,3 +696,126 @@ std::cout << obj.value;
 - `⛔️ a. 5`
 - `⛔️ b. 1`
 - `✅ c. Ошибка`
+
+31) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+struct А{
+    int value = 1;
+};
+
+struct B: A{
+    int value = 1;
+    B(int value){
+        this->A::value = value;
+    }
+};
+
+B obj(5);
+std::cout << obj.value;
+```
+
+### Ответ:
+- `⛔️ a. 5`
+- `⛔️ b. 1`
+- `✅ c. Ошибка`
+> [!Note]
+>
+> ???
+
+32) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+class A{
+public:
+    void get(){
+        std::cout << 'A';
+    }
+};
+
+class B{
+public:
+    void get(){
+        std::cout << 'B';
+    }
+};
+
+class C: public B, public A{
+};
+
+C obj;
+obj.get();
+```
+
+### Ответ:
+- `⛔️ a. C`
+- `⛔️ b. BA`
+- `✅ c. Ошибка`
+- `⛔️ d. A`
+- `⛔️ e. AB`
+- `⛔️ f. B`
+
+33) Какие из следующих вариантов использования мьютекса в Go являются правильными (считаем, что в процессе работы с данными ошибки быть не может)?
+
+### Ответ:
+- `a. ⛔️`
+  
+  ```cpp
+  func foo() {
+    mutex.Lock()
+    // работа с данными
+  }
+  ```
+- `b. ✅`
+  
+  ```cpp
+  func foo() {
+    mutex.Lock()
+    defer mutex.Unlock()
+    // работа с данными
+  }
+  ```
+- `c. ⛔️`
+  
+  ```cpp
+  func foo() {
+    mutex.Unlock()
+    // работа с данными
+  }
+  ```
+- `d. ✅`
+  
+  ```cpp
+  func foo() {
+    mutex.Lock()
+    // работа с данными
+    mutex.Unlock()
+  }
+  ```
+- `e. ⛔️`
+  
+  ```cpp
+  func foo() {
+    mutex.Unlock()
+    // работа с данными
+    mutex.Lock()
+  }
+  ```
+
+  34) Как разблокировать мьютекс в Go?
+
+  ### Ответ:
+- `⛔️ a. mutex.Delete()`
+- `⛔️ b. mutex.Release()`
+- `✅ c. mutex.Unlock()`
+- `⛔️ d. mutex.Exit()`
+- `⛔️ e. mutex.Free()`
+
+  35) Как запустить горутину в Go?
+  
+  ### Ответ:
+- `⛔️ a. defer funcName()`
+- `⛔️ b. funcName() as goroutine`
+- `✅ c. go funcName`
+- `⛔️ d. funcName() go`
+- `⛔️ e. go funcName()`
