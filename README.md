@@ -856,3 +856,38 @@ std::cout << obj.value;
 - `⛔️ b. 1`
 - `⛔️ c. Ошибка`
 - `✅ d. 9`
+
+38) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+class A{
+public:
+    A(){
+        std::cout << 'A';
+    }
+};
+
+class B{
+public:
+    B(){
+        std::cout << 'B';
+    }
+};
+
+class C: public A, public B{
+public:
+    C(){
+        std::cout << 'C';
+    }
+};
+
+C obj;
+```
+
+### Ответ:
+- `✅ a. ABC`
+- `⛔️ b. CAB`
+- `⛔️ c. CBA`
+- `⛔️ d. BAC`
+- `⛔️ e. Ничего`
+- `⛔️ f. C`
