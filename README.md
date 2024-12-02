@@ -808,3 +808,51 @@ obj.get();
 - `✅ c. go funcName`
 - `⛔️ d. funcName() go`
 - `⛔️ e. go funcName()`
+
+36) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+struct А{
+    int value = 1;
+};
+
+struct B: A{
+    B(int value){}
+};
+
+B obj(5);
+std::cout << obj.value;
+```
+
+### Ответ:
+- `⛔️ a. 5`
+- `✅ b. 1`
+- `⛔️ c. Ошибка`
+
+37) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+class A{
+public:
+    int value = 1;
+};
+
+class B{
+public:
+    int value = 5;
+};
+
+class C: public A, public B{
+public:
+    int value = 9;
+};
+
+C obj;
+std::cout << obj.value;
+```
+
+### Ответ:
+- `⛔️ a. 5`
+- `⛔️ b. 1`
+- `⛔️ c. Ошибка`
+- `✅ d. 9`
