@@ -801,9 +801,9 @@ obj.get();
   ### Ответ:
 - `⛔️ a. defer funcName()`
 - `⛔️ b. funcName() as goroutine`
-- `✅ c. go funcName`
+- `⛔️ c. go funcName`
 - `⛔️ d. funcName() go`
-- `⛔️ e. go funcName()`
+- `✅ e. go funcName()`
 
 36) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
 
