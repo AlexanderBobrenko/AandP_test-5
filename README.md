@@ -324,3 +324,87 @@ int main(){
 - `✅ a. +`
 - `⛔️ b. -`
 
+15) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+class A{
+public:
+    void get(){
+        std::cout << 'A';
+    }
+};
+
+class B{
+};
+
+class C: public B, public A{
+};
+
+C obj;
+obj.get();
+```
+
+### Ответ:
+- `✅ a. A`
+- `⛔️ b. AB`
+- `⛔️ c. B`
+- `⛔️ d. C`
+- `⛔️ e. BA`
+- `⛔️ f. Ошибка`
+
+16) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+class A{
+public:
+    int value = 1;
+    void set_value(int value){
+        this->value = value;
+    }
+};
+
+class B: public A{
+public:
+    int value = 1;
+    void set_value(int value){
+        this->value = value;
+    }
+};
+
+B obj;
+obj.set_value(5);
+std::cout << obj.value;
+```
+
+### Ответ:
+- `✅ a. 5`
+- `⛔️ b. 1`
+- `⛔️ c. Ошибка`
+
+17) Дан фрагмент кода на языке С++. Что будет на экране в результате выполнения данного фрагмента?
+
+```cpp
+class A{
+public:
+    void get(){
+        std::cout << 'A';
+    }
+};
+
+class B{
+public:
+    void get(){
+        std::cout << 'B';
+    }
+};
+
+class C: public B, public A{
+public:
+    void get(){
+        B::get();
+    }
+};
+
+C obj;
+obj.get();
+```
